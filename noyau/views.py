@@ -14,7 +14,9 @@ def homepage(request):
                   context={"netfeelex": Netfeelex.objects.all})
 
 def searchbar(request):
-    return render(request,'events/searchbar.html',{})
+    if request.method == "POST":
+
+     return render(request,'main/searchbar.html',{})
 
 def subscribe(request): 
     if request.method == "POST":

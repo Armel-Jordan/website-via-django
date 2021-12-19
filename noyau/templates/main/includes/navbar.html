@@ -3,7 +3,6 @@
         <a href="/" class="brand-logo">Films</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/">Page Principal</a></li>
-            <li><a href="/searchbar">Page De recherche</a></li>
             {% if user.is_authenticated %}
             <li><a href="/account">{{user.username}}</a></li>
             <li><a href="/logout">logout</a></li>
@@ -13,13 +12,12 @@
 
             {% endif %}
         </ul>
-        <form class="d-flex" method= POST 
-            action="{% url 'searchbar' %}">
-             {% csrf_token %} 
-                <input class="form-control me-2"
-                type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-secondary" typ="submit"> Search </button>
-    
-            </form>
+        <form class="d-flex" method= POST action="{% url 'noyau:searchbar' %}">
+            {% csrf_token %} 
+               <input class="form-control me-2"
+               type="search" placeholder="Search" aria-label="Search">
+               <footer><button class="btn btn-outline-secondary" typ="submit"> Search </button></footer>
+        </form>
+             
     </div>
 </nav>
