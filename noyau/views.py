@@ -15,8 +15,12 @@ def homepage(request):
 
 def searchbar(request):
     if request.method == "POST":
-
-     return render(request,'main/searchbar.html',{})
+      searched = request.POST['searched']
+      mod = Netfeelex.objects.filter(Titre_film=searched)
+      return render(request,'main/searchbar.html',{
+          'searched' :searched,
+          'mod' : mod,
+      })
 
 def subscribe(request): 
     if request.method == "POST":
